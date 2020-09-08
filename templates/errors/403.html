@@ -1,0 +1,6 @@
+{% extends 'layouts/main.html' %}
+{% block content %}
+  <h1>Oops seems like you need to login with your github account</h1>
+  <p>There's nothing here!</p>
+  <p><a href="{{redirect('https://github.com/login/oauth/authorize')}}">Click Here to Login with github!</a></p>
+{% endblock %}

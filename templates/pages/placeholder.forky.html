@@ -1,0 +1,24 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Search Repo{% endblock %}
+{% block content %}
+<div class="container">
+<div class="page-header">
+  <h1>HealthJoy Clonner</h1>
+</div>
+
+<h1>Search Repos by username</h1>
+        <form  method="post" action="">
+            <input class="" type="text" placeholder="Search Repos... " name="username" required> 
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+        </form>
+        <p>Click on any repo links to clone it to your github account</p>
+              
+<ul class="collection with-header">
+    {#    loop through repos and render them in list#}  
+    {% for repo in repos %}
+        <li class="collection-header"><h4><b>{{ repo.name }}</b></h4></li>       
+        <li class="btn btn-link"><a href='/clone?name={{repo.name}}&&url={{repo.clone_url}}'>{{ repo.clone_url }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

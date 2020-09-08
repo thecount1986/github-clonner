@@ -1,0 +1,57 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Clone Repo{% endblock %}
+{% block content %}
+<div class="container">
+<div class="page-header">
+  <h1>Clone Repo</h1>
+</div>
+
+<form method="post" class="form" action="/clone"> 
+    <h3 class="form-heading">Github Credentials <a href="{{ url_for('search') }}" title="Back to Search"><i class="fa fa-search pull-left"></i></a></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input class="form-control" type="text" placeholder="Enter username " name="username" required autofocus>
+                <label for="inputEmail">GitHub Username</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+                
+                <label for="inputPassword">Password</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="text" id="inputEmail" class="form-control" placeholder="Enter your first name" name="name" required autofocus>
+                <label for="inputEmail">Your Name</label>
+              </div>
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address"  name="email" required autofocus>
+                <label for="inputEmail">Email address</label>
+              </div>
+
+
+              <div class="form-label-group">
+                <input type="text" id="text" class="form-control" placeholder="Repo Name" required name="reponame"  value={{reponame}}>
+                
+                <label for="text">Repo Name</label>
+              </div>
+              <div class="form-label-group">
+                <input type="text" id="text" class="form-control" placeholder="Repo Name" required name="url"  value={{url}}>
+                
+                <label for="text">Repo Clone URL</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Clone Repo</button>
+              <hr class="my-4">             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
