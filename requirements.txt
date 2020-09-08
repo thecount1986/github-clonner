@@ -51,3 +51,4 @@ Werkzeug
 wheel               
 wrapt              
 WTForms              
+gunicorn
