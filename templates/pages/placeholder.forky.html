@@ -13,12 +13,24 @@
             </button>
         </form>
         <p>Click on any repo links to clone it to your github account</p>
-              
-<ul class="collection with-header">
+             
+
     {#    loop through repos and render them in list#}  
-    {% for repo in repos %}
-        <li class="collection-header"><h4><b>{{ repo.name }}</b></h4></li>       
-        <li class="btn btn-link"><a href='/clone?name={{repo.name}}&&url={{repo.clone_url}}'>{{ repo.clone_url }}</a></li>
-    {% endfor %}
-</ul>
+
+    {% if repos | length > 2 %}
+        <ul class="collection with-header">
+        
+            {% for repo in repos %}
+                
+                <li class="collection-header"><h4><b>{{ repo.name }}</b></h4></li>
+                <li class="btn btn-link"><a href='/clone?name={{repo.name}}&&url={{repo.clone_url}}'>{{ repo.clone_url }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        
+        <div style="color:red">No Repos found, check your github username</div>
+        
+    {% endif %}
+    
+
 {% endblock %}
